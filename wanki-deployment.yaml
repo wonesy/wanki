@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wanki-depl
+  labels:
+    app: wanki
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wanki
+  template:
+    metadata:
+      labels:
+        app: wanki
+    spec:
+      containers:
+      - name: wanki
+        image: wonesy/wanki:latest
+        imagePullPolicy: Always
+        ports:
+        - name: wanki-port
+          containerPort: 8765
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wanki-svc
+spec:
+  selector:
+    app: wanki
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: wanki-port
+    name: http-wanki

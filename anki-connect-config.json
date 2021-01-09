@@ -1,5 +1,5 @@
 {
-    "apiKey": null,
+    "apiKey": "wanki-test-api-key",
     "apiLogPath": null,
     "webBindAddress": "0.0.0.0",
     "webBindPort": 8765,
