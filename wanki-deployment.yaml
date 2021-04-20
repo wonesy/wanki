@@ -34,3 +34,29 @@ spec:
     port: 80
     targetPort: wanki-port
     name: http-wanki
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-all-egress
+spec:
+  podSelector:
+    matchLabels:
+      app: wanki
+  egress:
+  - {}
+  policyTypes:
+  - Egress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-all-ingress
+spec:
+  podSelector:
+    matchLabels:
+      app: wanki
+  ingress:
+  - {}
+  policyTypes:
+  - Ingress

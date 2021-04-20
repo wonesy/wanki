@@ -1,6 +1,6 @@
 {
     "apiKey": "wanki-test-api-key",
-    "apiLogPath": null,
+    "apiLogPath": "cameron.log",
     "webBindAddress": "0.0.0.0",
     "webBindPort": 8765,
     "webCorsOrigin": "*",
